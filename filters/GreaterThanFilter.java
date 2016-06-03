@@ -1,0 +1,34 @@
+package oop.ex5.filters;
+
+import java.io.File;
+
+/**
+ * A class for a filter that filter files if their size is greater than the size
+ * that the filter filter by it.
+ * 
+ * @author Avichai
+ *
+ */
+public class GreaterThanFilter implements Filter {
+
+	private double size;
+
+	/**
+	 * construct new GreaterThanFilter.
+	 * 
+	 * @param size
+	 *            the size that the filter filter by it.
+	 */
+	public GreaterThanFilter(double size) {
+		this.size = size;
+	}
+
+	@Override
+	public boolean isPassed(File f) {
+		if (f.length() > this.size * Constant.TO_BYTES) {
+			return true;
+		}
+		return false;
+	}
+
+}
